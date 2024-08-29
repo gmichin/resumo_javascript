@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Example</title>
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-base/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-grids/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-buttons/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-popups/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-richtexteditor/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-navigations/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-dropdowns/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-lists/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-inputs/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-calendars/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-notifications/styles/material.css" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/20.4.48/ej2-splitbuttons/styles/material.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <style>
+     body {
+      background-color: #232627;
+    }
+    img {
+      width: 12%;
+      height: 12%;
+      display: inline-block;
+    }
+    h1 {
+      color: white;
+      float: right;
+    }
+    .caixa-grande {
+      margin: 1cm;
+    }
+
+    .ui-autocomplete {
+      margin-right: 2.5cm;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      z-index: 1000;
+    }
+    .ui-autocomplete li {
+      padding: 8px;
+      cursor: pointer;
+      list-style-type: none;
+    }
+    .ui-autocomplete li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  
+  <script src="https://cdn.syncfusion.com/ej2/20.4.48/dist/ej2.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div style="margin-top: 10px; margin-left: 0.7cm; margin-right: 1.2cm;">
+    <img src="Inserir uma url de logo" alt="logo">
+    <h1>Formulario Template</h1>
+  </div>
+  <div class="caixa-grande">
+    <section class="content">
+      <div class="container-fluid">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: rgb(102, 102, 102);">
+                <h3 class="card-title">Formulário Exemplo</h3>
+              </div>
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>nome</label>
+                    <input class="form-control" id="nome" placeholder="Insira o nome">
+                  </div>
+
+                  <div class="card-footer">
+                    <button id="botaoProject" type="submit" class="btn btn-primary" style="background-color: rgb(102, 102, 102);">project</button>
+                  </div>
+
+                  <div id="projectName"></div>
+
+                  <div class="form-group">
+                  <div class="form-group">
+                    <label>grupo</label>
+                    <input class="form-control" id="grupo" placeholder="Insira o grupo">
+                  </div>
+                <div class="card-footer">
+                  <button id="botaoSalvar" type="submit" class="btn btn-primary" style="background-color: rgb(102, 102, 102);">Salvar</button>
+                </div>
+              </form>
+            </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+  <script>
+    var ele = document.getElementById('container').value;
+    if(ele) {
+      ele.style.visibility = "visible";
+    };
+  
+    ej.base.registerLicense('exemplo de apiKey licença');
+    const res = await content('dataExemplo', context);
+
+    const dataRes = [];
+
+    res.data.invoices.forEach(it=>{
+            data.push({
+                reference: it.reference,
+                userid: it.customer.userid,
+                company: it.customer.company,
+                projects: it.customer.projects
+            });
+    });
+
+    const dataStr = JSON.stringify(dataRes);
+      const data = dataStr;
+
+      console.log(data);
+
+      nome = [];
+
+      data.forEach(d=> {
+        const companyName = d.company;
+        nome.push(companyName);
+      });
+      
+      const dataHist = [];
+      var gridHistorico = new ej.grids.Grid({
+        dataSource: dataHist,
+        toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
+        editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+        columns: [
+        { field: 'consumo', headerText: 'Consumo', width: 160, textAlign: 'Left' },
+        { field: 'dias', headerText: 'Dias', width: 120, textAlign: 'Left' },
+        { field: 'mes', headerText: 'Mês', width: 120 },
+      ]
+      });
+      gridHistorico.appendTo('#GridHistorico');
+
+        $(document).ready(function() {
+          $("#nome").autocomplete({
+            source: nome,
+            minLength: 1
+        });
+
+        document.getElementById("botaoProject").addEventListener("click", function(event) {
+          event.preventDefault();
+          let nomeValue = document.getElementById("nome").value;
+
+          let company = data.find(d=> d.company === nomeValue);
+
+          if (company) {
+            let companyId = company.userid;
+
+            let project = null;
+            for (const d of data) {
+              if (d.userid === companyId) {
+                project = d.projects;
+                break;
+              }
+            };
+
+            if (project) {
+              var projectNameElement = document.getElementById("projectName");
+
+              projectNameElement.innerHTML = "";
+
+              var paragraphElement = document.createElement("p");
+              paragraphElement.textContent = JSON.stringify(project);
+
+              projectNameElement.appendChild(paragraphElement);
+            } else {
+              console.log("No project found for the selected company.");
+            };
+          } else {
+            console.log("Company not found.");
+          };
+        });
+
+
+        document.getElementById("botaoSalvar").addEventListener("click", function(event) {
+            event.preventDefault();
+            let nome = document.getElementById("nome").value;
+            let grupo = document.getElementById("grupo").value;
+            let data = {
+              nome : nome,
+              grupo : grupo
+            };
+          
+            let json = {
+              data: data
+            };
+            console.log(json);
+        });
+      });
+  </script>
+</body>
+</html>
